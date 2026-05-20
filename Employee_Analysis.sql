@@ -172,15 +172,15 @@ LIMIT 10;
 --insights
 
 ---Employee_ID	    Department	          Job_Title	       Monthly_Salary
-      --184	      Customer Support	        Manager	        9000
-      --138	      Customer Support	        Manager	        9000
-       --40	          HR	                  Engineer	       9000
-        --219	    Engineering	                Engineer	     9000
-        ---119	      IT	                  Manager	         9000
-         ---117	     Legal	                Manager	         9000
+      --184	      Customer Support	        Manager	             9000
+      --138	      Customer Support	        Manager	             9000
+       --40	          HR	                Engineer	       9000
+        --219	    Engineering	                Engineer	 9000
+        ---119	      IT	                  Manager	       9000
+         ---117	     Legal	                Manager	             9000
           ---36	       HR	                  Engineer	       9000
            ---22	    Sales	                  Manager	       9000
-           ---196     	Legal	              Engineer	       9000
+           ---196     	Legal	              Engineer	             9000
               --226	     Sales	             Manager	       9000
 ---age group customers
 select age_category, count(*) as total_cust from emp_data_cleaned
@@ -239,15 +239,15 @@ FROM emp_data_cleaned
 GROUP BY Department
 ORDER BY avg_satisfaction DESC;   
 --Department	avg_satisfaction
---Operations	              3.03
+--Operations	          3.03
 --IT	                      3.02
 --HR	                      3
---Engineering	              3
---Finance	                  3
---Sales	                    2.99
---Legal	                    2.99
+--Engineering	          3
+--Finance	                3
+--Sales	                2.99
+--Legal	                2.99
 --Marketing	                2.99
---Customer Support	        2.97
+--Customer Support	    2.97
 
 --Resigned Employees Count
 SELECT 
@@ -270,14 +270,14 @@ group by department
 order by resigned_emp desc;
 --department	resigned_emp
 --Finance	       1180
---Legal	         1136
---HR	           1125
---Marketing	     1125
---Operations	   1121
---Sales	          1104
---Customer Support	1098
---IT	              1064
---Engineering	       1057
+--Legal	       1136
+--HR	             1125
+--Marketing	       1125
+--Operations	 1121
+--Sales	       1104
+--Customer Suppor  1098
+--IT	             1064
+--Engineering	 1057
 
 --Overtime Analysis
 SELECT 
@@ -356,12 +356,6 @@ FROM emp_data_cleaned
 ORDER BY Overtime_Hours DESC
 LIMIT 5;
 
----Rank Employees by Salary
-SELECT 
-    Employee_ID,
-    Department,
-    Monthly_Salary,
-  RANK() OVER(PARTITION BY Department ORDER BY Monthly_Salary DESC) As salary_rank
-FROM emp_data_cleaned;
+
 
                                   
